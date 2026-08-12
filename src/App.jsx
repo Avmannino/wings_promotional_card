@@ -26,14 +26,26 @@ function App() {
     <main className="promo-page">
       <article className="promo-card">
         <div className="promo-topbar">
-          <img src="./wings-logo.png" alt="Wings" className="promo-logo" />
+          <img
+            src="./wings-logo.png"
+            alt="Wings Arena"
+            className="promo-logo"
+          />
         </div>
 
         <div className="promo-content">
           <div className="promo-heading">
-            <span className="promo-heading-blue">LABOR DAY</span>
-            <span className="promo-heading-red">SKILLS COMBINE</span>
-            <span className="promo-heading-red">CLINIC</span>
+            <span className="promo-heading-blue">
+              LABOR DAY
+            </span>
+
+            <span className="promo-heading-red">
+              SKILLS COMBINE
+            </span>
+
+            <span className="promo-heading-red">
+              CLINIC
+            </span>
           </div>
 
           <div className="promo-division">
@@ -51,10 +63,12 @@ function App() {
             target="_top"
             rel="noopener noreferrer"
           >
-            Registration & Info
+            Registration &amp; Info
           </a>
 
-          <p className="promo-tagline">Get the Data Behind Your Game!</p>
+          <p className="promo-tagline">
+            Get the Data Behind Your Game!
+          </p>
         </div>
       </article>
     </main>

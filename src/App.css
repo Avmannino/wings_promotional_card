@@ -1,3 +1,7 @@
+/* ===================================================
+   RESET
+   =================================================== */
+
 *,
 *::before,
 *::after {
@@ -9,8 +13,10 @@ body,
 #root {
   width: 100%;
   height: 100%;
+
   margin: 0;
   padding: 0;
+
   background: transparent !important;
 }
 
@@ -37,75 +43,119 @@ a {
   justify-content: center;
 }
 
-/* ---------------------------------------------------
-   PAGE WRAPPER
-   --------------------------------------------------- */
+
+/* ===================================================
+   PAGE / EMBED WRAPPER
+
+   IMPORTANT:
+   container-type allows the entire card to respond
+   to the actual WIDTH OF THE WIX EMBED instead of
+   relying on normal viewport breakpoints.
+   =================================================== */
 
 .promo-page {
   width: 100%;
   height: 100%;
+
+  container-type: inline-size;
+  container-name: promo;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
   margin: 0;
-  padding: clamp(5px, calc(4.51px + 0.136vw), 8px);
+
+  /*
+    This padding also scales with the iframe.
+  */
+  padding: clamp(4px, 2cqi, 8px);
 
   background: transparent;
 }
 
-/* ---------------------------------------------------
+
+/* ===================================================
    CARD
-   --------------------------------------------------- */
+   =================================================== */
 
 .promo-card {
-  --pad-x: clamp(10px, calc(9.51px + 0.136vw), 13px);
-  --pad-t: clamp(11px, calc(10.35px + 0.182vw), 15px);
-  --pad-b: clamp(10px, calc(9.35px + 0.182vw), 14px);
-  --gap-sm: clamp(9px, calc(8.51px + 0.136vw), 12px);
-  --gap-md: clamp(9px, calc(8.35px + 0.182vw), 13px);
-  --fs-heading: clamp(18px, calc(17.35px + 0.182vw), 22px);
-  --fs-sm: clamp(9px, calc(8.67px + 0.091vw), 11px);
-  --fs-date: clamp(10px, calc(9.67px + 0.091vw), 12px);
-  --fs-tagline: clamp(9px, calc(8.75px + 0.068vw), 10.5px);
-  --ls-wide: clamp(1.4px, calc(1.3px + 0.027vw), 2px);
-  --topbar-h: clamp(32px, calc(31.02px + 0.273vw), 38px);
-  --logo-h: clamp(20px, calc(19.35px + 0.182vw), 24px);
-  --btn-h: clamp(33px, calc(32.18px + 0.227vw), 38px);
+  /*
+    The card now uses the available iframe width.
 
-  width: min(100%, clamp(220px, calc(210.18px + 2.727vw), 280px));
+    If the Wix embed is:
+      300px -> card approaches 290px
+      270px -> card approaches 270px
+      240px -> card approaches 240px
+      210px -> card approaches 210px
+
+    There is no 220px minimum preventing it
+    from continuing to shrink.
+  */
+
+  width: 100%;
+  max-width: 290px;
 
   overflow: hidden;
 
   background: #ffffff;
 
-  border: 1px solid rgba(8, 42, 74, 0.35);
-  border-radius: 12px;
+  border:
+    clamp(0.75px, 0.35cqi, 1px)
+    solid
+    rgba(8, 42, 74, 0.35);
+
+  border-radius: clamp(8px, 3.5cqi, 12px);
 
   box-shadow:
-    0 8px 24px rgba(0, 24, 47, 0.26),
-    0 2px 6px rgba(0, 24, 47, 0.16);
+    0 clamp(5px, 2.5cqi, 8px)
+      clamp(15px, 7cqi, 24px)
+      rgba(0, 24, 47, 0.26),
 
-  animation: promo-card-enter 750ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    0 clamp(1px, 0.7cqi, 2px)
+      clamp(4px, 2cqi, 6px)
+      rgba(0, 24, 47, 0.16);
+
+  animation:
+    promo-card-enter
+    750ms
+    cubic-bezier(0.22, 1, 0.36, 1)
+    both;
 
   transition:
     transform 220ms ease,
     box-shadow 220ms ease;
 }
 
+
+/* ===================================================
+   CARD HOVER
+   =================================================== */
+
 .promo-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(
+    clamp(-3px, -1cqi, -2px)
+  );
 
   box-shadow:
-    0 12px 28px rgba(0, 24, 47, 0.3),
-    0 4px 10px rgba(0, 24, 47, 0.18);
+    0 clamp(8px, 3cqi, 12px)
+      clamp(18px, 8cqi, 28px)
+      rgba(0, 24, 47, 0.3),
+
+    0 clamp(2px, 1cqi, 4px)
+      clamp(6px, 3cqi, 10px)
+      rgba(0, 24, 47, 0.18);
 }
+
+
+/* ===================================================
+   ENTRANCE ANIMATION
+   =================================================== */
 
 @keyframes promo-card-enter {
   from {
     opacity: 0;
-    transform: translateY(220px);
+    transform: translateY(80px);
   }
 
   to {
@@ -114,24 +164,41 @@ a {
   }
 }
 
+
 @media (prefers-reduced-motion: reduce) {
   .promo-card {
     animation: none;
   }
 }
 
-/* ---------------------------------------------------
-   NAVY TOP BAR
-   --------------------------------------------------- */
+
+/* ===================================================
+   TOP BAR
+   =================================================== */
 
 .promo-topbar {
-  height: var(--topbar-h);
+  /*
+    Roughly:
+      large card -> 38px
+      medium -> 34px
+      small -> 29px
+  */
+
+  height: clamp(28px, 12cqi, 38px);
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
 
-  padding: 0 var(--pad-x);
+  /*
+    Logo is centered vertically but aligned
+    toward the left like your current design.
+  */
+
+  justify-content: flex-start;
+
+  padding:
+    0
+    clamp(9px, 4cqi, 13px);
 
   color: #ffffff;
 
@@ -143,48 +210,52 @@ a {
     );
 }
 
-.promo-icon {
-  display: block;
 
-  width: 20px;
-  height: 20px;
-
-  flex: 0 0 auto;
-}
+/* ===================================================
+   LOGO
+   =================================================== */
 
 .promo-logo {
   display: block;
 
-  height: var(--logo-h);
+  height: clamp(18px, 7.5cqi, 24px);
   width: auto;
+
+  max-width: 70%;
 
   flex: 0 0 auto;
 
   object-fit: contain;
 }
 
-/* ---------------------------------------------------
-   WHITE BODY
-   --------------------------------------------------- */
+
+/* ===================================================
+   CARD BODY
+   =================================================== */
 
 .promo-content {
   display: flex;
   flex-direction: column;
   align-items: stretch;
 
-  padding: var(--pad-t) var(--pad-x) var(--pad-b);
+  padding:
+    clamp(10px, 4.8cqi, 15px)
+    clamp(9px, 4.2cqi, 13px)
+    clamp(9px, 4.4cqi, 14px);
 }
 
-/* ---------------------------------------------------
+
+/* ===================================================
    TITLE
-   --------------------------------------------------- */
+   =================================================== */
 
 .promo-heading {
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  margin-bottom: var(--gap-sm);
+  margin-bottom:
+    clamp(7px, 3.8cqi, 12px);
 
   text-align: center;
 
@@ -194,13 +265,34 @@ a {
     Impact,
     sans-serif;
 
-  font-size: var(--fs-heading);
+  /*
+    This is now based on iframe/card width.
+
+    Approx:
+      290px card -> 22px
+      260px card -> ~20px
+      230px card -> ~18px
+      200px card -> ~16px
+  */
+
+  font-size:
+    clamp(
+      15.5px,
+      7.5cqi,
+      22px
+    );
+
   font-weight: 900;
   font-style: italic;
 
   line-height: 0.94;
 
-  letter-spacing: -0.3px;
+  letter-spacing:
+    clamp(
+      -0.3px,
+      -0.1cqi,
+      -0.15px
+    );
 
   text-transform: uppercase;
 }
@@ -217,13 +309,20 @@ a {
   color: #e31837;
 }
 
-/* ---------------------------------------------------
+
+/* ===================================================
    PEEWEE / BANTAM BAR
-   --------------------------------------------------- */
+   =================================================== */
 
 .promo-division {
-  margin: 0 calc(-1 * var(--pad-x)) var(--gap-md);
-  padding: clamp(4.5px, calc(4.25px + 0.068vw), 6px) clamp(7.5px, calc(7.09px + 0.114vw), 10px);
+  margin:
+    0
+    calc(-1 * clamp(9px, 4.2cqi, 13px))
+    clamp(8px, 4cqi, 13px);
+
+  padding:
+    clamp(4px, 1.8cqi, 6px)
+    clamp(7px, 3cqi, 10px);
 
   background: #073b65;
 
@@ -231,74 +330,159 @@ a {
 
   text-align: center;
 
-  font-size: var(--fs-sm);
+  font-size:
+    clamp(
+      8px,
+      3.6cqi,
+      11px
+    );
+
   font-weight: 800;
 
-  letter-spacing: var(--ls-wide);
+  letter-spacing:
+    clamp(
+      1px,
+      0.65cqi,
+      2px
+    );
 
   line-height: 1;
 
   text-transform: uppercase;
 }
 
-/* ---------------------------------------------------
+
+/* ===================================================
    DATE
-   --------------------------------------------------- */
+   =================================================== */
 
 .promo-date {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(6px, calc(5.67px + 0.091vw), 8px);
 
-  margin-bottom: var(--gap-md);
+  gap:
+    clamp(
+      5px,
+      2.4cqi,
+      8px
+    );
+
+  margin-bottom:
+    clamp(
+      8px,
+      4cqi,
+      13px
+    );
 
   color: #0b365c;
 
-  font-size: var(--fs-date);
+  font-size:
+    clamp(
+      8.5px,
+      4cqi,
+      12px
+    );
+
   font-weight: 800;
 
-  letter-spacing: var(--ls-wide);
+  letter-spacing:
+    clamp(
+      1px,
+      0.65cqi,
+      2px
+    );
 
   line-height: 1;
 }
 
-.promo-date .promo-icon {
-  width: clamp(14px, calc(13.51px + 0.136vw), 17px);
-  height: clamp(14px, calc(13.51px + 0.136vw), 17px);
+
+/* ===================================================
+   CALENDAR ICON
+   =================================================== */
+
+.promo-icon {
+  display: block;
+
+  width:
+    clamp(
+      13px,
+      5.8cqi,
+      17px
+    );
+
+  height:
+    clamp(
+      13px,
+      5.8cqi,
+      17px
+    );
+
+  flex: 0 0 auto;
 }
 
-/* ---------------------------------------------------
+
+/* ===================================================
    BUTTON
-   --------------------------------------------------- */
+   =================================================== */
 
 .promo-button {
   width: 100%;
+
+  min-height:
+    clamp(
+      31px,
+      12.5cqi,
+      38px
+    );
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  min-height: var(--btn-h);
+  padding:
+    clamp(7px, 3cqi, 10px)
+    clamp(10px, 5cqi, 16px);
 
-  padding: clamp(8px, calc(7.67px + 0.091vw), 10px) clamp(12px, calc(11.35px + 0.182vw), 16px);
+  border:
+    1px
+    solid
+    rgba(0, 0, 0, 0.15);
 
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 5px;
+  border-radius:
+    clamp(
+      4px,
+      1.8cqi,
+      5px
+    );
 
   background: #d61f3e;
 
   box-shadow:
-    0 3px 8px rgba(0, 44, 70, 0.2);
+    0
+    clamp(2px, 1cqi, 3px)
+    clamp(5px, 3cqi, 8px)
+    rgba(0, 44, 70, 0.2);
 
   color: #ffffff;
 
   text-decoration: none;
 
-  font-size: var(--fs-sm);
+  font-size:
+    clamp(
+      8px,
+      3.6cqi,
+      11px
+    );
+
   font-weight: 900;
 
-  letter-spacing: clamp(1.3px, calc(1.23px + 0.018vw), 1.7px);
+  letter-spacing:
+    clamp(
+      0.8px,
+      0.55cqi,
+      1.7px
+    );
 
   line-height: 1;
 
@@ -316,9 +500,12 @@ a {
   transform: translateY(-1px);
 
   box-shadow:
-    0 5px 12px rgba(0, 44, 70, 0.25);
+    0
+    clamp(3px, 1.5cqi, 5px)
+    clamp(7px, 4cqi, 12px)
+    rgba(0, 44, 70, 0.25);
 
-  filter: brightness(1.025);
+  filter: brightness(1.035);
 }
 
 .promo-button:active {
@@ -326,27 +513,111 @@ a {
 }
 
 .promo-button:focus-visible {
-  outline: 3px solid rgba(214, 31, 62, 0.35);
+  outline:
+    3px solid rgba(214, 31, 62, 0.35);
+
   outline-offset: 3px;
 }
 
-/* ---------------------------------------------------
+
+/* ===================================================
    TAGLINE
-   --------------------------------------------------- */
+   =================================================== */
 
 .promo-tagline {
-  margin: clamp(6px, calc(5.67px + 0.091vw), 8px) 0 0;
+  margin:
+    clamp(
+      5px,
+      2.5cqi,
+      8px
+    )
+    0
+    0;
 
   color: #0b365c;
 
   text-align: center;
 
-  font-size: var(--fs-tagline);
+  font-size:
+    clamp(
+      7.5px,
+      3.4cqi,
+      10.5px
+    );
+
   font-weight: 700;
   font-style: italic;
 
-  letter-spacing: 0.3px;
+  letter-spacing:
+    clamp(
+      0.1px,
+      0.1cqi,
+      0.3px
+    );
 
   line-height: 1.2;
 }
 
+
+/* ===================================================
+   SMALL EMBEDS
+
+   These are not regular device breakpoints.
+   They react to the WIDTH OF THE EMBED ITSELF.
+   =================================================== */
+
+@container promo (max-width: 250px) {
+  .promo-card {
+    border-radius: 9px;
+  }
+
+  .promo-heading {
+    line-height: 0.96;
+  }
+
+  .promo-tagline {
+    line-height: 1.15;
+  }
+}
+
+
+@container promo (max-width: 220px) {
+  .promo-content {
+    padding-top: 9px;
+  }
+
+  .promo-heading {
+    margin-bottom: 7px;
+  }
+
+  .promo-division {
+    margin-bottom: 8px;
+  }
+
+  .promo-date {
+    margin-bottom: 8px;
+  }
+}
+
+
+@container promo (max-width: 195px) {
+  .promo-heading {
+    font-size: 15px;
+  }
+
+  .promo-division {
+    font-size: 7.5px;
+  }
+
+  .promo-date {
+    font-size: 8px;
+  }
+
+  .promo-button {
+    font-size: 7.5px;
+  }
+
+  .promo-tagline {
+    font-size: 7px;
+  }
+}
