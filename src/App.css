@@ -50,7 +50,7 @@ a {
   justify-content: center;
 
   margin: 0;
-  padding: clamp(5px, calc(4px + 0.278vw), 8px);
+  padding: clamp(5px, calc(4.51px + 0.136vw), 8px);
 
   background: transparent;
 }
@@ -60,21 +60,21 @@ a {
    --------------------------------------------------- */
 
 .promo-card {
-  --pad-x: clamp(10px, calc(9px + 0.278vw), 13px);
-  --pad-t: clamp(11px, calc(9.67px + 0.370vw), 15px);
-  --pad-b: clamp(10px, calc(8.67px + 0.370vw), 14px);
-  --gap-sm: clamp(9px, calc(8px + 0.278vw), 12px);
-  --gap-md: clamp(9px, calc(7.67px + 0.370vw), 13px);
-  --fs-heading: clamp(18px, calc(16.67px + 0.370vw), 22px);
-  --fs-sm: clamp(9px, calc(8.33px + 0.185vw), 11px);
-  --fs-date: clamp(10px, calc(9.33px + 0.185vw), 12px);
-  --fs-tagline: clamp(9px, calc(8.5px + 0.139vw), 10.5px);
-  --ls-wide: clamp(1.4px, calc(1.2px + 0.056vw), 2px);
-  --topbar-h: clamp(32px, calc(30px + 0.556vw), 38px);
-  --logo-h: clamp(20px, calc(18.67px + 0.370vw), 24px);
-  --btn-h: clamp(33px, calc(31.33px + 0.463vw), 38px);
+  --pad-x: clamp(10px, calc(9.51px + 0.136vw), 13px);
+  --pad-t: clamp(11px, calc(10.35px + 0.182vw), 15px);
+  --pad-b: clamp(10px, calc(9.35px + 0.182vw), 14px);
+  --gap-sm: clamp(9px, calc(8.51px + 0.136vw), 12px);
+  --gap-md: clamp(9px, calc(8.35px + 0.182vw), 13px);
+  --fs-heading: clamp(18px, calc(17.35px + 0.182vw), 22px);
+  --fs-sm: clamp(9px, calc(8.67px + 0.091vw), 11px);
+  --fs-date: clamp(10px, calc(9.67px + 0.091vw), 12px);
+  --fs-tagline: clamp(9px, calc(8.75px + 0.068vw), 10.5px);
+  --ls-wide: clamp(1.4px, calc(1.3px + 0.027vw), 2px);
+  --topbar-h: clamp(32px, calc(31.02px + 0.273vw), 38px);
+  --logo-h: clamp(20px, calc(19.35px + 0.182vw), 24px);
+  --btn-h: clamp(33px, calc(32.18px + 0.227vw), 38px);
 
-  width: min(100%, clamp(220px, calc(200px + 5.556vw), 280px));
+  width: min(100%, clamp(220px, calc(210.18px + 2.727vw), 280px));
 
   overflow: hidden;
 
@@ -223,7 +223,7 @@ a {
 
 .promo-division {
   margin: 0 calc(-1 * var(--pad-x)) var(--gap-md);
-  padding: clamp(4.5px, calc(4px + 0.139vw), 6px) clamp(7.5px, calc(6.67px + 0.231vw), 10px);
+  padding: clamp(4.5px, calc(4.25px + 0.068vw), 6px) clamp(7.5px, calc(7.09px + 0.114vw), 10px);
 
   background: #073b65;
 
@@ -249,7 +249,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(6px, calc(5.33px + 0.185vw), 8px);
+  gap: clamp(6px, calc(5.67px + 0.091vw), 8px);
 
   margin-bottom: var(--gap-md);
 
@@ -264,8 +264,8 @@ a {
 }
 
 .promo-date .promo-icon {
-  width: clamp(14px, calc(13px + 0.278vw), 17px);
-  height: clamp(14px, calc(13px + 0.278vw), 17px);
+  width: clamp(14px, calc(13.51px + 0.136vw), 17px);
+  height: clamp(14px, calc(13.51px + 0.136vw), 17px);
 }
 
 /* ---------------------------------------------------
@@ -281,7 +281,7 @@ a {
 
   min-height: var(--btn-h);
 
-  padding: clamp(8px, calc(7.33px + 0.185vw), 10px) clamp(12px, calc(10.67px + 0.370vw), 16px);
+  padding: clamp(8px, calc(7.67px + 0.091vw), 10px) clamp(12px, calc(11.35px + 0.182vw), 16px);
 
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 5px;
@@ -298,7 +298,7 @@ a {
   font-size: var(--fs-sm);
   font-weight: 900;
 
-  letter-spacing: clamp(1.3px, calc(1.17px + 0.037vw), 1.7px);
+  letter-spacing: clamp(1.3px, calc(1.23px + 0.018vw), 1.7px);
 
   line-height: 1;
 
@@ -335,7 +335,7 @@ a {
    --------------------------------------------------- */
 
 .promo-tagline {
-  margin: clamp(6px, calc(5.33px + 0.185vw), 8px) 0 0;
+  margin: clamp(6px, calc(5.67px + 0.091vw), 8px) 0 0;
 
   color: #0b365c;
 
