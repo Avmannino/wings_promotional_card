@@ -1,6 +1,7 @@
 import "./App.css";
 
-const CLINIC_URL = "https://www.wingsarena.com/labor-day-combine";
+const COMBINE_URL = "https://www.wingsarena.com/labor-day-combine";
+const TUNE_UP_URL = "https://www.wingsarena.com/tune-up-clinic";
 
 function CalendarIcon() {
   return (
@@ -31,40 +32,82 @@ function App() {
             alt="Wings Arena"
             className="promo-logo"
           />
+
+          <span className="promo-topbar-label">
+            Labor Day Clinics
+          </span>
         </div>
 
         <div className="promo-content">
-          <div className="promo-heading">
-            <span className="promo-heading-blue">
-              LABOR DAY
-            </span>
+          <div className="promo-program">
+            <div className="promo-heading">
+              <span className="promo-heading-blue">
+                PRE-SEASON
+              </span>
 
-            <span className="promo-heading-red">
-              SKILLS COMBINE
-            </span>
+              <span className="promo-heading-red">
+                TUNE-UP
+              </span>
 
-            <span className="promo-heading-red">
-              CLINIC
-            </span>
+              <span className="promo-heading-red">
+                CLINIC
+              </span>
+            </div>
+
+            <div className="promo-division">
+              MITES &amp; SQUIRTS
+            </div>
+
+            <div className="promo-date">
+              <CalendarIcon />
+              <span>SEPT 5–7</span>
+            </div>
+
+            <a
+              className="promo-button"
+              href={TUNE_UP_URL}
+              target="_top"
+              rel="noopener noreferrer"
+            >
+              Registration &amp; Info
+            </a>
+
+            <p className="promo-tagline">
+              Shake Off the Rust. Get Ready for the Season!
+            </p>
           </div>
 
-          <div className="promo-division">
-            PEEWEE &amp; BANTAM
-          </div>
+          <div className="promo-divider" />
 
-          <div className="promo-date">
-            <CalendarIcon />
-            <span>SEPT 5–7</span>
-          </div>
+          <div className="promo-program promo-program-alt">
+            <div className="promo-heading">
+              <span className="promo-heading-red">
+                SKILLS COMBINE
+              </span>
 
-          <a
-            className="promo-button"
-            href={CLINIC_URL}
-            target="_top"
-            rel="noopener noreferrer"
-          >
-            Registration &amp; Info
-          </a>
+              <span className="promo-heading-blue">
+                CLINIC
+              </span>
+            </div>
+
+            <div className="promo-division">
+              PEEWEE &amp; BANTAM
+            </div>
+
+            <div className="promo-date">
+              <CalendarIcon />
+              <span>SEPT 5–7</span>
+            </div>
+
+            <a
+              className="promo-button"
+              href={COMBINE_URL}
+              target="_top"
+              rel="noopener noreferrer"
+            >
+              Registration &amp; Info
+            </a>
+          </div>
 
           <p className="promo-tagline">
             Get the Data Behind Your Game!
