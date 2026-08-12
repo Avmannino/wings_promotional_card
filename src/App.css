@@ -50,7 +50,7 @@ a {
   justify-content: center;
 
   margin: 0;
-  padding: 8px;
+  padding: clamp(5px, calc(4px + 0.278vw), 8px);
 
   background: transparent;
 }
@@ -60,7 +60,21 @@ a {
    --------------------------------------------------- */
 
 .promo-card {
-  width: min(100%, 280px);
+  --pad-x: clamp(10px, calc(9px + 0.278vw), 13px);
+  --pad-t: clamp(11px, calc(9.67px + 0.370vw), 15px);
+  --pad-b: clamp(10px, calc(8.67px + 0.370vw), 14px);
+  --gap-sm: clamp(9px, calc(8px + 0.278vw), 12px);
+  --gap-md: clamp(9px, calc(7.67px + 0.370vw), 13px);
+  --fs-heading: clamp(18px, calc(16.67px + 0.370vw), 22px);
+  --fs-sm: clamp(9px, calc(8.33px + 0.185vw), 11px);
+  --fs-date: clamp(10px, calc(9.33px + 0.185vw), 12px);
+  --fs-tagline: clamp(9px, calc(8.5px + 0.139vw), 10.5px);
+  --ls-wide: clamp(1.4px, calc(1.2px + 0.056vw), 2px);
+  --topbar-h: clamp(32px, calc(30px + 0.556vw), 38px);
+  --logo-h: clamp(20px, calc(18.67px + 0.370vw), 24px);
+  --btn-h: clamp(33px, calc(31.33px + 0.463vw), 38px);
+
+  width: min(100%, clamp(220px, calc(200px + 5.556vw), 280px));
 
   overflow: hidden;
 
@@ -111,13 +125,13 @@ a {
    --------------------------------------------------- */
 
 .promo-topbar {
-  height: 38px;
+  height: var(--topbar-h);
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  padding: 0 13px;
+  padding: 0 var(--pad-x);
 
   color: #ffffff;
 
@@ -141,7 +155,7 @@ a {
 .promo-logo {
   display: block;
 
-  height: 24px;
+  height: var(--logo-h);
   width: auto;
 
   flex: 0 0 auto;
@@ -158,7 +172,7 @@ a {
   flex-direction: column;
   align-items: stretch;
 
-  padding: 15px 13px 14px;
+  padding: var(--pad-t) var(--pad-x) var(--pad-b);
 }
 
 /* ---------------------------------------------------
@@ -170,7 +184,7 @@ a {
   flex-direction: column;
   align-items: center;
 
-  margin-bottom: 12px;
+  margin-bottom: var(--gap-sm);
 
   text-align: center;
 
@@ -180,7 +194,7 @@ a {
     Impact,
     sans-serif;
 
-  font-size: 22px;
+  font-size: var(--fs-heading);
   font-weight: 900;
   font-style: italic;
 
@@ -208,8 +222,8 @@ a {
    --------------------------------------------------- */
 
 .promo-division {
-  margin: 0 -13px 13px;
-  padding: 6px 10px;
+  margin: 0 calc(-1 * var(--pad-x)) var(--gap-md);
+  padding: clamp(4.5px, calc(4px + 0.139vw), 6px) clamp(7.5px, calc(6.67px + 0.231vw), 10px);
 
   background: #073b65;
 
@@ -217,10 +231,10 @@ a {
 
   text-align: center;
 
-  font-size: 11px;
+  font-size: var(--fs-sm);
   font-weight: 800;
 
-  letter-spacing: 2px;
+  letter-spacing: var(--ls-wide);
 
   line-height: 1;
 
@@ -235,23 +249,23 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: clamp(6px, calc(5.33px + 0.185vw), 8px);
 
-  margin-bottom: 13px;
+  margin-bottom: var(--gap-md);
 
   color: #0b365c;
 
-  font-size: 12px;
+  font-size: var(--fs-date);
   font-weight: 800;
 
-  letter-spacing: 2px;
+  letter-spacing: var(--ls-wide);
 
   line-height: 1;
 }
 
 .promo-date .promo-icon {
-  width: 17px;
-  height: 17px;
+  width: clamp(14px, calc(13px + 0.278vw), 17px);
+  height: clamp(14px, calc(13px + 0.278vw), 17px);
 }
 
 /* ---------------------------------------------------
@@ -265,9 +279,9 @@ a {
   align-items: center;
   justify-content: center;
 
-  min-height: 38px;
+  min-height: var(--btn-h);
 
-  padding: 10px 16px;
+  padding: clamp(8px, calc(7.33px + 0.185vw), 10px) clamp(12px, calc(10.67px + 0.370vw), 16px);
 
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 5px;
@@ -281,10 +295,10 @@ a {
 
   text-decoration: none;
 
-  font-size: 11px;
+  font-size: var(--fs-sm);
   font-weight: 900;
 
-  letter-spacing: 1.7px;
+  letter-spacing: clamp(1.3px, calc(1.17px + 0.037vw), 1.7px);
 
   line-height: 1;
 
@@ -321,13 +335,13 @@ a {
    --------------------------------------------------- */
 
 .promo-tagline {
-  margin: 8px 0 0;
+  margin: clamp(6px, calc(5.33px + 0.185vw), 8px) 0 0;
 
   color: #0b365c;
 
   text-align: center;
 
-  font-size: 10.5px;
+  font-size: var(--fs-tagline);
   font-weight: 700;
   font-style: italic;
 
@@ -336,38 +350,3 @@ a {
   line-height: 1.2;
 }
 
-/* ---------------------------------------------------
-   SMALL EMBEDS / MOBILE
-   --------------------------------------------------- */
-
-@media (max-width: 260px) {
-  .promo-page {
-    padding: 5px;
-  }
-
-  .promo-content {
-    padding: 13px 11px 12px;
-  }
-
-  .promo-heading {
-    font-size: 19px;
-  }
-
-  .promo-division {
-    margin: 0 -11px 13px;
-
-    font-size: 9px;
-    letter-spacing: 1.5px;
-  }
-
-  .promo-date {
-    font-size: 10px;
-    letter-spacing: 1.5px;
-  }
-
-  .promo-button {
-    min-height: 35px;
-
-    font-size: 10px;
-  }
-}
