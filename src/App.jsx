@@ -54,7 +54,7 @@ function App() {
 
           <div className="promo-date">
             <CalendarIcon />
-            <span>SEPT 4–7</span>
+            <span>SEPT 5–7</span>
           </div>
 
           <a
