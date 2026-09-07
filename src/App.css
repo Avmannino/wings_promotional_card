@@ -343,7 +343,7 @@ a {
   font-weight: 900;
   font-style: italic;
 
-  line-height: 0.94;
+  line-height: 1.08;
 
   letter-spacing:
     clamp(
@@ -365,6 +365,15 @@ a {
 
 .promo-heading-red {
   color: #e31837;
+}
+
+.promo-heading-amp {
+  margin: 0.05em 0;
+
+  color: #07345c;
+
+  font-size: 0.6em;
+  font-weight: 700;
 }
 
 
@@ -546,6 +555,10 @@ a {
     filter 160ms ease;
 }
 
+.promo-button + .promo-button {
+  margin-top: clamp(8px, 4cqi, 10px);
+}
+
 .promo-button:hover {
   transform: translateY(-1px);
 
@@ -567,6 +580,14 @@ a {
     3px solid rgba(214, 31, 62, 0.35);
 
   outline-offset: 3px;
+}
+
+.promo-button-blue {
+  background: #073b65;
+}
+
+.promo-button-blue:focus-visible {
+  outline-color: rgba(7, 59, 101, 0.35);
 }
 
 
@@ -616,13 +637,78 @@ a {
    They react to the WIDTH OF THE EMBED ITSELF.
    =================================================== */
 
-@container promo (max-width: 250px) {
+@container promo (max-width: 600px) {
+  /*
+    MOBILE / NARROW EMBED:
+    Two stacked programs get too tall for a short
+    mobile iframe, so switch the card to a flat,
+    horizontal layout instead - programs sit side
+    by side. Sizing below is fluid (cqi-based) so
+    it scales across the whole 0-600px mobile
+    range instead of just the smallest embeds.
+  */
+
   .promo-card {
-    border-radius: 9px;
+    max-width: 600px;
+
+    border-radius: clamp(8px, 1.7cqi, 12px);
+  }
+
+  .promo-content {
+    flex-direction: row;
+    align-items: stretch;
+
+    padding: clamp(6px, 2cqi, 13px);
+  }
+
+  .promo-program {
+    flex: 1 1 0;
+    min-width: 0;
+
+    justify-content: center;
+  }
+
+  .promo-divider {
+    width: clamp(1.5px, 0.3cqi, 2px);
+    height: auto;
+
+    align-self: stretch;
+    margin: 0 clamp(4px, 1.3cqi, 8px);
   }
 
   .promo-heading {
-    line-height: 0.96;
+    margin-bottom: clamp(4px, 1.8cqi, 8px);
+
+    font-size: clamp(10px, 3.3cqi, 20px);
+    line-height: 1.1;
+
+    letter-spacing: -0.1px;
+  }
+
+  .promo-program-alt .promo-heading {
+    font-size: clamp(13px, 4.2cqi, 24px);
+  }
+
+  .promo-button {
+    width: 100%;
+
+    min-height: clamp(20px, 5.7cqi, 34px);
+
+    padding:
+      clamp(3px, 1.2cqi, 8px)
+      clamp(4px, 1.7cqi, 12px);
+    border-radius: clamp(3px, 0.7cqi, 5px);
+
+    font-size: clamp(6px, 1.7cqi, 10px);
+    letter-spacing: clamp(0.3px, 0.15cqi, 0.8px);
+  }
+
+  .promo-program-alt .promo-button {
+    min-height: clamp(26px, 7.2cqi, 42px);
+  }
+
+  .promo-button + .promo-button {
+    margin-top: clamp(4px, 1.3cqi, 8px);
   }
 
   .promo-tagline {
@@ -633,41 +719,35 @@ a {
 
 @container promo (max-width: 220px) {
   .promo-content {
-    padding-top: 9px;
+    padding: 6px;
+  }
+
+  .promo-divider {
+    margin: 0 5px;
   }
 
   .promo-heading {
-    margin-bottom: 7px;
+    margin-bottom: 4px;
+
+    font-size: 10px;
   }
 
-  .promo-division {
-    margin-bottom: 8px;
-  }
+  .promo-button {
+    min-height: 20px;
 
-  .promo-date {
-    margin-bottom: 8px;
+    padding: 3px 4px;
+
+    font-size: 6px;
   }
 }
 
 
 @container promo (max-width: 195px) {
   .promo-heading {
-    font-size: 15px;
-  }
-
-  .promo-division {
-    font-size: 7.5px;
-  }
-
-  .promo-date {
-    font-size: 8px;
+    font-size: 9px;
   }
 
   .promo-button {
-    font-size: 7.5px;
-  }
-
-  .promo-tagline {
-    font-size: 7px;
+    font-size: 5.5px;
   }
 }
