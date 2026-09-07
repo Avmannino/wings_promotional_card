@@ -637,28 +637,28 @@ a {
    They react to the WIDTH OF THE EMBED ITSELF.
    =================================================== */
 
-@container promo (max-width: 600px) {
+@container promo (max-width: 800px) {
   /*
     MOBILE / NARROW EMBED:
     Two stacked programs get too tall for a short
     mobile iframe, so switch the card to a flat,
     horizontal layout instead - programs sit side
     by side. Sizing below is fluid (cqi-based) so
-    it scales across the whole 0-600px mobile
+    it scales across the whole 0-800px mobile
     range instead of just the smallest embeds.
   */
 
   .promo-card {
-    max-width: 600px;
+    max-width: 800px;
 
-    border-radius: clamp(8px, 1.7cqi, 12px);
+    border-radius: clamp(8px, 1.5cqi, 12px);
   }
 
   .promo-content {
     flex-direction: row;
     align-items: stretch;
 
-    padding: clamp(6px, 2cqi, 13px);
+    padding: clamp(6px, 1.625cqi, 13px);
   }
 
   .promo-program {
@@ -669,46 +669,46 @@ a {
   }
 
   .promo-divider {
-    width: clamp(1.5px, 0.3cqi, 2px);
+    width: clamp(1.5px, 0.25cqi, 2px);
     height: auto;
 
     align-self: stretch;
-    margin: 0 clamp(4px, 1.3cqi, 8px);
+    margin: 0 clamp(4px, 1cqi, 8px);
   }
 
   .promo-heading {
-    margin-bottom: clamp(4px, 1.8cqi, 8px);
+    margin-bottom: clamp(4px, 1cqi, 8px);
 
-    font-size: clamp(10px, 3.3cqi, 20px);
+    font-size: clamp(10px, 2.5cqi, 20px);
     line-height: 1.1;
 
     letter-spacing: -0.1px;
   }
 
   .promo-program-alt .promo-heading {
-    font-size: clamp(13px, 4.2cqi, 24px);
+    font-size: clamp(13px, 3cqi, 24px);
   }
 
   .promo-button {
     width: 100%;
 
-    min-height: clamp(20px, 5.7cqi, 34px);
+    min-height: clamp(20px, 4.25cqi, 34px);
 
     padding:
-      clamp(3px, 1.2cqi, 8px)
-      clamp(4px, 1.7cqi, 12px);
-    border-radius: clamp(3px, 0.7cqi, 5px);
+      clamp(3px, 1cqi, 8px)
+      clamp(4px, 1.5cqi, 12px);
+    border-radius: clamp(3px, 0.625cqi, 5px);
 
-    font-size: clamp(6px, 1.7cqi, 10px);
-    letter-spacing: clamp(0.3px, 0.15cqi, 0.8px);
+    font-size: clamp(6px, 1.25cqi, 10px);
+    letter-spacing: clamp(0.3px, 0.1cqi, 0.8px);
   }
 
   .promo-program-alt .promo-button {
-    min-height: clamp(26px, 7.2cqi, 42px);
+    min-height: clamp(26px, 5.25cqi, 42px);
   }
 
   .promo-button + .promo-button {
-    margin-top: clamp(4px, 1.3cqi, 8px);
+    margin-top: clamp(4px, 1cqi, 8px);
   }
 
   .promo-tagline {
