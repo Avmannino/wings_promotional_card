@@ -68,8 +68,12 @@ a {
 
   /*
     This padding also scales with the iframe.
+
+    NOTE: uses vw, not cqi - this element IS the
+    "promo" container, so it can't reference its
+    own container's units (circular dependency).
   */
-  padding: clamp(4px, 2cqi, 8px);
+  padding: clamp(4px, 2vw, 8px);
 
   background: transparent;
 }
