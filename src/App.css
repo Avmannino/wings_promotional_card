@@ -709,21 +709,17 @@ a {
   .promo-heading {
     margin-bottom: clamp(4px, 1cqi, 8px);
 
-    font-size: clamp(10px, 2.5cqi, 20px);
+    font-size: clamp(13px, 3cqi, 24px);
     line-height: 1.1;
 
     letter-spacing: -0.1px;
-  }
-
-  .promo-program-alt .promo-heading {
-    font-size: clamp(13px, 3cqi, 24px);
   }
 
   .promo-button {
     width: 85%;
     margin: 0 auto;
 
-    min-height: clamp(20px, 4.25cqi, 34px);
+    min-height: clamp(26px, 5.25cqi, 42px);
 
     padding:
       clamp(3px, 1cqi, 8px)
@@ -732,10 +728,6 @@ a {
 
     font-size: clamp(6px, 1.25cqi, 10px);
     letter-spacing: clamp(0.3px, 0.1cqi, 0.8px);
-  }
-
-  .promo-program-alt .promo-button {
-    min-height: clamp(26px, 5.25cqi, 42px);
   }
 
   .promo-button + .promo-button {
