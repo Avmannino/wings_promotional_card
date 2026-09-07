@@ -290,6 +290,20 @@ a {
   background: rgba(7, 52, 92, 0.5);
 }
 
+/*
+  Divides two stacked programs WITHIN one column.
+  Always horizontal, regardless of row/column mode -
+  unlike .promo-divider, which flips orientation.
+*/
+.promo-subdivider {
+  height: 1.5px;
+
+  margin: clamp(6px, 3cqi, 10px) 0;
+  border-radius: 1px;
+
+  background: rgba(7, 52, 92, 0.35);
+}
+
 .promo-program-alt .promo-division {
   color: #b3102b;
 }
@@ -304,6 +318,14 @@ a {
 
 .promo-program-alt .promo-button:focus-visible {
   outline-color: rgba(7, 59, 101, 0.35);
+}
+
+.promo-program-alt .promo-button-red {
+  background: #d61f3e;
+}
+
+.promo-program-alt .promo-button-red:focus-visible {
+  outline-color: rgba(214, 31, 62, 0.35);
 }
 
 
@@ -672,6 +694,10 @@ a {
     justify-content: center;
   }
 
+  .promo-subdivider {
+    margin: clamp(4px, 1.5cqi, 8px) 0;
+  }
+
   .promo-divider {
     width: clamp(1.5px, 0.25cqi, 2px);
     height: auto;
@@ -694,7 +720,8 @@ a {
   }
 
   .promo-button {
-    width: 100%;
+    width: 85%;
+    margin: 0 auto;
 
     min-height: clamp(20px, 4.25cqi, 34px);
 

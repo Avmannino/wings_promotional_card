@@ -3,6 +3,7 @@ import "./App.css";
 const LEARN_TO_PLAY_URL = "https://www.wingsarena.com/learntoplay";
 const LEARN_TO_SKATE_URL = "https://www.wingsarena.com/learntoskate";
 const MITES_LTP_URL = "https://www.wingsarena.com/mites-ltp-league";
+const ADULT_HOCKEY_URL = "https://www.wingsarena.com/adult-hockey-classes";
 
 function App() {
   return (
@@ -75,6 +76,27 @@ function App() {
             <a
               className="promo-button"
               href={MITES_LTP_URL}
+              target="_top"
+              rel="noopener noreferrer"
+            >
+              Registration &amp; Info
+            </a>
+
+            <div className="promo-subdivider" />
+
+            <div className="promo-heading">
+              <span className="promo-heading-red">
+                ADULT
+              </span>
+
+              <span className="promo-heading-blue">
+                HOCKEY CLASSES
+              </span>
+            </div>
+
+            <a
+              className="promo-button promo-button-red"
+              href={ADULT_HOCKEY_URL}
               target="_top"
               rel="noopener noreferrer"
             >
